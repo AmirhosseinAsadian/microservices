@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/session2/microservices7/_01order/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/microservices7/_01order/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/microservices7/_01order/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/microservices7/_01product/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/microservices7/_01product/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/session2/microservices7/_01product/src/test/java" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
