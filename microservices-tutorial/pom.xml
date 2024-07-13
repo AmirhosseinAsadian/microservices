@@ -12,6 +12,8 @@
   <modules>
     <module>_01order</module>
     <module>_01product</module>
+    <module>_01discount</module>
+      <module>_03eureka_server</module>
   </modules>
 
   <properties>
@@ -28,6 +30,10 @@
         <version>${spring.boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
       </dependency>
 
     </dependencies>

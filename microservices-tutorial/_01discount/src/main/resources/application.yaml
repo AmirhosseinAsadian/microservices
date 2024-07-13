@@ -1,14 +1,14 @@
 server:
-  port: 8081
+  port: 8083
 spring:
   application:
-    name: product
-#  main:
-#    banner-mode: off
+    name: discount
+  #  main:
+  #    banner-mode: off
 
-#logging:
-#  level:
-#    root: debug
+  #logging:
+  #  level:
+  #    root: debug
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/anisa
