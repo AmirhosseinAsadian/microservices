@@ -21,18 +21,16 @@ public class OrderService {
 
     @Autowired
     private HibernateOrderRepository orderRepository;
-
     @Autowired
     private RestTemplate restTemplate;
 
     private ProductDTO getProduct(String productName) {
-
-        ProductDTO productDTO = restTemplate.getForObject("http://localhost:8081/api/v1/product/getProduct?productName=p1", ProductDTO.class, productName);
+        ProductDTO productDTO = restTemplate.getForObject("http://PRODUCT/api/v1/product/getProduct?productName=p1", ProductDTO.class, productName);
         return productDTO;
     }
 
-    private CouponDTO getCoupon(String couponCode) {
-        CouponDTO couponDTO = restTemplate.getForObject("http://localhost:8081//api/v1/coupon/{code}", CouponDTO.class, couponCode);
+    private CouponDTO getCoupon(String productName) {
+        CouponDTO couponDTO = restTemplate.getForObject("http://DISCOUNT/api/v1/coupon/getCouponByProduct/{code}", CouponDTO.class, productName);
         return couponDTO;
     }
 

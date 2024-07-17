@@ -6,7 +6,6 @@ import ir.digixo.repository.HibernateProductRepository;
 import ir.digixo.repository.ProductRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,6 +18,7 @@ public class ProductService {
 
     @Autowired
     private HibernateProductRepository hibernateProductRepository;
+
     public void saveProduct(ProductDTO productDTO) {
         Product product = new Product();
         BeanUtils.copyProperties(productDTO, product);

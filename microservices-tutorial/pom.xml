@@ -13,12 +13,13 @@
     <module>_01order</module>
     <module>_01product</module>
     <module>_01discount</module>
-      <module>_03eureka_server</module>
+    <module>_03eureka_server</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.boot.version>3.3.1</spring.boot.version>
+    <spring.cloud.version>2023.0.3</spring.cloud.version>
   </properties>
 
   <dependencyManagement>
@@ -34,6 +35,9 @@
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
     </dependencies>
@@ -66,8 +70,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
         <configuration>
-          <target>17</target>
-          <source>17</source>
+          <target>21</target>
+          <source>21</source>
           <compilerArgs>
             <arg>-parameters</arg>
           </compilerArgs>

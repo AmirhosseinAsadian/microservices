@@ -7,13 +7,4 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface ProductRepository extends JpaRepository<Product,Long> {
-
-    //finder method
-    Product findByName(String name);
-
-
-
-//    @Query(value = "",nativeQuery = true)
-//    Product m();
-    //crud
 }
