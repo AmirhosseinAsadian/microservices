@@ -9,6 +9,12 @@
     <file url="file://$PROJECT_DIR$/microservices-tutorial/_01product/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservices-tutorial/_03eureka_server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservices-tutorial/_03eureka_server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices-tutorial/_04client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices-tutorial/_04client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices-tutorial/_05notification/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices-tutorial/_05notification/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices-tutorial/_06gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices-tutorial/_06gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservices-tutorial/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservices-tutorial/src/main/resources" charset="UTF-8" />
   </component>

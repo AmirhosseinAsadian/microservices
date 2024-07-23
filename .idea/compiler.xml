@@ -7,10 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="_06gateway" />
         <module name="_03eureka_server" />
         <module name="_01product" />
+        <module name="_05notification" />
         <module name="_01discount" />
         <module name="_01order" />
+        <module name="_04client" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +23,9 @@
       <module name="_01order" options="-parameters" />
       <module name="_01product" options="-parameters" />
       <module name="_03eureka_server" options="-parameters" />
+      <module name="_04client" options="-parameters" />
+      <module name="_05notification" options="-parameters" />
+      <module name="_06gateway" options="-parameters" />
       <module name="microservices-tutorial" options="-parameters" />
     </option>
   </component>

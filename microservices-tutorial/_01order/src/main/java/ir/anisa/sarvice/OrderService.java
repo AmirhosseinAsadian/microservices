@@ -1,20 +1,24 @@
 package ir.anisa.sarvice;
 
-import ir.anisa.dto.CouponDTO;
+import ir.anisa.discount.client.DiscountClient;
+import ir.anisa.discount.dto.Coupon;
 import ir.anisa.dto.OrderDTO;
 import ir.anisa.dto.ProductDTO;
 import ir.anisa.entity.Order;
 import ir.anisa.repository.HibernateOrderRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestTemplate;
+import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 @Service
 public class OrderService {
@@ -23,20 +27,28 @@ public class OrderService {
     private HibernateOrderRepository orderRepository;
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private DiscountClient discountClient;
+
+    @Autowired
+    private WebClient webClient;
 
     private ProductDTO getProduct(String productName) {
-        ProductDTO productDTO = restTemplate.getForObject("http://PRODUCT/api/v1/product/getProduct?productName=p1", ProductDTO.class, productName);
+        ProductDTO productDTO = restTemplate.getForObject("http://PRODUCT/api/v1/product/getProduct/{productName}", ProductDTO.class, productName);
+//        ProductDTO productDTO = webClient.get().uri("http://PRODUCT/api/v1/product/getProduct/{productName}", productName).retrieve().toEntity(new ParameterizedTypeReference<ProductDTO>() {}).block().getBody();
+//        ProductDTO productDTO = RestClient.builder().build().get().uri("http://PRODUCT/api/v1/product/getProduct/{productName}", productName).retrieve().body(ProductDTO.class);
+
         return productDTO;
     }
 
-    private CouponDTO getCoupon(String productName) {
-        CouponDTO couponDTO = restTemplate.getForObject("http://DISCOUNT/api/v1/coupon/getCouponByProduct/{code}", CouponDTO.class, productName);
-        return couponDTO;
+    private Coupon getCoupon(String productName) {
+        Coupon coupon = discountClient.findByProductName(productName);
+        return coupon;
     }
 
     public void saveOrder(OrderDTO orderDTO, String productName) {
         ProductDTO product = getProduct(productName);
-        CouponDTO coupon = getCoupon(productName);
+        Coupon coupon = getCoupon(productName);
         Order order = new Order();
         BeanUtils.copyProperties(orderDTO, order);
         order.setProductName(product.getName());
@@ -44,7 +56,7 @@ public class OrderService {
         orderRepository.saveOrder(order);
     }
 
-    private BigDecimal prepareProductDiscount(ProductDTO product, CouponDTO coupon) {
+    private BigDecimal prepareProductDiscount(ProductDTO product, Coupon coupon) {
         BigDecimal discount = product.getPrice().multiply(coupon.getPercent()).divide(new BigDecimal("100"));
         return discount;
     }

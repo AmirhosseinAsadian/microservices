@@ -25,8 +25,8 @@ public class CouponController {
         return couponService.findByCouponCode(code);
     }
 
-    @GetMapping("/getCouponByProduct/{code}")
-    public CouponDTO findByProductName(@PathVariable("code") String code) {
-        return couponService.findByProductName(code);
+    @GetMapping("/getCouponByProduct/{productName}")
+    public CouponDTO findByProductName(@PathVariable("productName") String productName) {
+        return couponService.findByProductName(productName);
     }
 }

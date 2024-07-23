@@ -1,4 +1,4 @@
-package ir.anisa.dto;
+package ir.anisa.discount.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CouponDTO implements Serializable {
+public class Coupon implements Serializable {
     private String code;
     private String productName;
     private BigDecimal percent;
