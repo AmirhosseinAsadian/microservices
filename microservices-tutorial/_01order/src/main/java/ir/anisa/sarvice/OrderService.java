@@ -34,8 +34,8 @@ public class OrderService {
     private WebClient webClient;
 
     private ProductDTO getProduct(String productName) {
-//        ProductDTO productDTO = restTemplate.getForObject("http://PRODUCT/api/v1/product/getProduct/{productName}", ProductDTO.class, productName);
-        ProductDTO productDTO = webClient.get().uri("http://localhost:8081/api/v1/product/getProduct/{productName}", productName).retrieve().bodyToMono(ProductDTO.class).block();
+        ProductDTO productDTO = restTemplate.getForObject("http://PRODUCT/api/v1/product/getProduct/{productName}", ProductDTO.class, productName);
+//        ProductDTO productDTO = webClient.get().uri("http://localhost:8081/api/v1/product/getProduct/{productName}", productName).retrieve().bodyToMono(ProductDTO.class).block();
 //        ProductDTO productDTO = RestClient.builder().build().get().uri("http://PRODUCT/api/v1/product/getProduct/{productName}", productName).retrieve().body(ProductDTO.class);
 
         return productDTO;
